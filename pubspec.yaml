@@ -91,8 +91,8 @@ flutter:
 patrol:
   app_name: My App
   android:
-    package_name: com.example.myapp
+    package_name: com.example.my_app
   ios:
-    bundle_id: com.example.MyApp
+    bundle_id: com.example.myApp
   macos:
-    bundle_id: com.example.macos.MyApp
+    bundle_id: com.example.macos.myApp

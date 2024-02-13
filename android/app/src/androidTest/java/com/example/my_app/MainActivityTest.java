@@ -1,4 +1,4 @@
-package com.example.myapp; // replace "com.example.myapp" with your app's package
+package com.example.my_app; // replace "com.example.myapp" with your app's package
 
 import androidx.test.platform.app.InstrumentationRegistry;
 import org.junit.Test;
@@ -11,10 +11,14 @@ import pl.leancode.patrol.PatrolJUnitRunner;
 public class MainActivityTest {
     @Parameters(name = "{0}")
     public static Object[] testCases() {
+        System.out.println("BATMAX: MainActivityTest.testCases()");
         PatrolJUnitRunner instrumentation = (PatrolJUnitRunner) InstrumentationRegistry.getInstrumentation();
-        // replace "MainActivity.class" with "io.flutter.embedding.android.FlutterActivity.class" 
-        // if your AndroidManifest is using: android:name="io.flutter.embedding.android.FlutterActivity"
+        // replace "MainActivity.class" with
+        // "io.flutter.embedding.android.FlutterActivity.class"
+        // if your AndroidManifest is using:
+        // android:name="io.flutter.embedding.android.FlutterActivity"
         instrumentation.setUp(MainActivity.class);
+        // instrumentation.setUp(io.flutter.embedding.android.FlutterActivity.class);
         instrumentation.waitForPatrolAppService();
         return instrumentation.listDartTests();
     }

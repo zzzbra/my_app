@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:patrol/patrol.dart';
 
 void main() {
+  print('BATMAX: Running integration tests');
   patrolTest(
     'counter state is the same after going to home and switching apps',
     ($) async {

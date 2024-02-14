@@ -30,7 +30,7 @@ workflows:
   #         set -ex
   #         cd android
   #         ./gradlew app:assembleAndroidTest
-  #         ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/app_test.dart"
+  #         ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/example_test.dart"
   #     - name: Run Firebase Test Lab tests
   #       script: |
   #         set -ex
@@ -117,7 +117,7 @@ workflows:
           script: |
             set -ex
 
-            flutter build ios integration_test/app_test.dart --release
+            flutter build ios integration_test/example_test.dart --release
 
             cd ios
             xcodebuild \

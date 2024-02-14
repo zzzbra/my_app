@@ -111,12 +111,12 @@ workflows:
         - name: Set up code signing settings on Xcode project
           script: |
             xcode-project use-profiles
-        # - name: Get Flutter packages
-        #   script: |
-        #     flutter packages pub get
-        # - name: Install pods
-        #   script: |
-        #     find . -name "Podfile" -execdir pod install \;
+        - name: Get Flutter packages
+          script: |
+            flutter packages pub get
+        - name: Install pods
+          script: |
+            find . -name "Podfile" -execdir pod install \;
         # - name: Flutter analyze
         #   script: |
         #     flutter analyze
@@ -126,25 +126,25 @@ workflows:
         #   ignore_failure: true
 
 
-        - name: Build app for testing
-          script: |
-            set -ex
+        # - name: Build app for testing
+        #   script: |
+        #     set -ex
 
-            flutter build ios integration_test/example_test.dart --release
+        #     flutter build ios integration_test/example_test.dart --release
 
-            cd ios
-            xcodebuild \
-              -workspace Runner.xcworkspace \
-              -scheme Runner \
-              -config Flutter/Release.xcconfig \
-              -derivedDataPath "../build/ios_integ" \
-              -sdk iphoneos \
-              build-for-testing
-        - name: Package tests bundle
-          script: |
-            set -ex
-            cd ./build/ios_integ/Build/Products
-            zip -r "ios_tests.zip" *-iphoneos *.xctestrun
+        #     cd ios
+        #     xcodebuild \
+        #       -workspace Runner.xcworkspace \
+        #       -scheme Runner \
+        #       -config Flutter/Release.xcconfig \
+        #       -derivedDataPath "../build/ios_integ" \
+        #       -sdk iphoneos \
+        #       build-for-testing
+        # - name: Package tests bundle
+        #   script: |
+        #     set -ex
+        #     cd ./build/ios_integ/Build/Products
+        #     zip -r "ios_tests.zip" *-iphoneos *.xctestrun
         # - name: Run tests in Firebase Test Lab
         #   script: gcloud firebase test ios run --test "build/ios_integ/Build/Products/ios_tests.zip"     
 

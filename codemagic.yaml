@@ -55,7 +55,7 @@ workflows:
           emulator -avd emulator &
           adb wait-for-device      
       - name: Run tests with Patrol
-        script: patrol test -t integration_test/your_test.dart
+        script: patrol test -t integration_test/example_test.dart
         ignore_failure: true
 
     artifacts:

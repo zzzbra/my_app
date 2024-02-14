@@ -80,18 +80,38 @@ workflows:
           BUNDLE_ID: "io.codemagic.ftlflutter"
           TEST_BUNDLE_ID: "io.codemagic.ftlflutter.uitests.xctrunner"
       scripts:
-        - name: Configure Firebase access
-          script: |
-            set -e
-            echo $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS > ./gcloud_key_file.json          
-            gcloud auth activate-service-account --key-file=gcloud_key_file.json
-            gcloud --quiet config set project $FIREBASE_PROJECT
+        # - name: Configure Firebase access
+        #   script: |
+        #     set -e
+        #     echo $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS > ./gcloud_key_file.json          
+        #     gcloud auth activate-service-account --key-file=gcloud_key_file.json
+        #     gcloud --quiet config set project $FIREBASE_PROJECT
 
-        - keychain initialize
-        - app-store-connect fetch-signing-files ${BUNDLE_ID} --create
-        - app-store-connect fetch-signing-files ${TEST_BUNDLE_ID} --create
-        - keychain add-certificates
-        - xcode-project use-profiles --code-signing-setup-verbose-logging
+        # - keychain initialize
+        # - app-store-connect fetch-signing-files ${BUNDLE_ID} --create
+        # - app-store-connect fetch-signing-files ${TEST_BUNDLE_ID} --create
+        # - keychain add-certificates
+        # - xcode-project use-profiles --code-signing-setup-verbose-logging
+
+
+        # # What a regular build looks like
+        # - name: Set up code signing settings on Xcode project
+        #   script: |
+        #     xcode-project use-profiles
+        # - name: Get Flutter packages
+        #   script: |
+        #     flutter packages pub get
+        # - name: Install pods
+        #   script: |
+        #     find . -name "Podfile" -execdir pod install \;
+        # - name: Flutter analyze
+        #   script: |
+        #     flutter analyze
+        # - name: Flutter unit tests
+        #   script: |
+        #     flutter test
+        #   ignore_failure: true
+
 
         - name: Build app for testing
           script: |
@@ -112,7 +132,17 @@ workflows:
             set -ex
             cd ./build/ios_integ/Build/Products
             zip -r "ios_tests.zip" *-iphoneos *.xctestrun
-        - name: Run tests in Firebase Test Lab
-          script: gcloud firebase test ios run --test "build/ios_integ/Build/Products/ios_tests.zip"     
+        # - name: Run tests in Firebase Test Lab
+        #   script: gcloud firebase test ios run --test "build/ios_integ/Build/Products/ios_tests.zip"     
+        - name: Install Patrol CLI
+          script: dart pub global activate patrol_cli
+        - name: Launch Android emulator
+          script: |
+            cd $ANDROID_HOME/tools
+            emulator -avd emulator &
+            adb wait-for-device      
+        - name: Run tests with Patrol
+          script: patrol test -t integration_test/your_test.dart
+          ignore_failure: true
       artifacts:
         - "**/ios_tests.zip"

@@ -1,5 +1,14 @@
 workflows:
-  hello-world:
-    name: Hello world workflow
+  accepted-code-changes:
+    name: Accepted Code Changes workflow
     scripts:
-        - echo "Hello World!"
+      - name: Install Patrol CLI
+        script: dart pub global activate patrol_cli
+      - name: Launch Android emulator
+        script: |
+          cd $ANDROID_HOME/tools
+          emulator -avd emulator &
+          adb wait-for-device      
+      - name: Run tests with Patrol
+        script: patrol test -t integration_test/your_test.dart
+        ignore_failure: true

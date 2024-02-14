@@ -1,6 +1,7 @@
 workflows:
   accepted-code-changes:
     name: Accepted Code Changes workflow
+    instance_type: linux
     scripts:
       - name: Install Patrol CLI
         script: dart pub global activate patrol_cli

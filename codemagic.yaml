@@ -108,9 +108,9 @@ workflows:
 
 
         # # What a regular build looks like
-        # - name: Set up code signing settings on Xcode project
-        #   script: |
-        #     xcode-project use-profiles
+        - name: Set up code signing settings on Xcode project
+          script: |
+            xcode-project use-profiles
         # - name: Get Flutter packages
         #   script: |
         #     flutter packages pub get

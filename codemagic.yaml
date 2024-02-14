@@ -84,7 +84,7 @@ workflows:
       instance_type: mac_mini_m1
       environment:
         flutter: stable
-        xcode: 13.4.1
+        xcode: 15.2
         groups:
           - ios_credentials
           # - gcloud_credentials

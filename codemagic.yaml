@@ -71,6 +71,7 @@ workflows:
       name: iOS Workflow
       instance_type: mac_mini_m1
       environment:
+        flutter: stable
         xcode: 13.4.1
         groups:
           - ios_credentials

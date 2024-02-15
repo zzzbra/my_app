@@ -150,11 +150,15 @@ workflows:
 
         - name: Install Patrol CLI
           script: dart pub global activate patrol_cli
-        - name: Launch Android emulator
-          script: |
-            cd $ANDROID_HOME/tools
-            emulator -avd emulator &
-            adb wait-for-device      
+
+        # # TODO: what are the ios equivalent steps here?
+        # # https://stackoverflow.com/questions/31179706/how-can-i-launch-the-ios-simulator-from-terminal ??
+        # - name: Launch Android emulator
+        #   script: |
+        #     cd $ANDROID_HOME/tools
+        #     emulator -avd emulator &
+        #     adb wait-for-device      
+
         - name: Run tests with Patrol
           script: patrol test -t integration_test/your_test.dart
           ignore_failure: true

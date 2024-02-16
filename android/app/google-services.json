@@ -1,0 +1,206 @@
+{
+  "project_info": {
+    "project_number": "139691558685",
+    "project_id": "lineleap-dev",
+    "storage_bucket": "lineleap-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139691558685:android:7bb6ba53d199752fe003f4",
+        "android_client_info": {
+          "package_name": "com.example.linewatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8brZe25FFWhwGkBN8GkdygEeyZ_vi6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139691558685-0tm3g8qpk29j5cf47e9e3k5k61rm6vip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileDashboard.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139691558685:android:3c00581d568493ece003f4",
+        "android_client_info": {
+          "package_name": "com.example.mobile_dashboard.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139691558685-pl0f62qk3k8nn4s8hbcesp7o7nvd8b8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile_dashboard.dev",
+            "certificate_hash": "576c2ba573336683dd384eede85de65d33147b79"
+          }
+        },
+        {
+          "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8brZe25FFWhwGkBN8GkdygEeyZ_vi6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139691558685-0tm3g8qpk29j5cf47e9e3k5k61rm6vip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileDashboard.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139691558685:android:f93711d857705653e003f4",
+        "android_client_info": {
+          "package_name": "com.example.my_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8brZe25FFWhwGkBN8GkdygEeyZ_vi6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139691558685-0tm3g8qpk29j5cf47e9e3k5k61rm6vip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileDashboard.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139691558685:android:dde66f2d9bbbcedbe003f4",
+        "android_client_info": {
+          "package_name": "com.example.redeem_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8brZe25FFWhwGkBN8GkdygEeyZ_vi6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139691558685-0tm3g8qpk29j5cf47e9e3k5k61rm6vip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileDashboard.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139691558685:android:a2b4982104f8ff91e003f4",
+        "android_client_info": {
+          "package_name": "io.Lineleap.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139691558685-5bsss7msnguohu3k1q3n8ed3r5li1q2e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.Lineleap.dev",
+            "certificate_hash": "803e8844319b79988ef214860100e84687ab2855"
+          }
+        },
+        {
+          "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8brZe25FFWhwGkBN8GkdygEeyZ_vi6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139691558685-gt25m7olvrrsogl0ocrdkph2eeitsvlf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139691558685-0tm3g8qpk29j5cf47e9e3k5k61rm6vip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileDashboard.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

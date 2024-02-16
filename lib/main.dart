@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -12,7 +13,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   // This widget is the root of your application.
   @override
@@ -63,6 +66,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String? _uid;
 
   void _incrementCounter() {
     setState(() {
@@ -73,6 +77,22 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  Future<void> _login() async {
+    try {
+      final userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: 'zbrady+1206@lineleap.com',
+        password: 'test1234',
+      );
+      print('userCredential: $userCredential');
+      setState(() {
+        _uid = userCredential.user?.uid;
+      });
+    } catch (e) {
+      print('Error: $e');
+    }
   }
 
   @override
@@ -119,6 +139,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const SizedBox(height: 20),
+            GestureDetector(
+              onTap: _login,
+              child: Text(
+                'Click me to login',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            if (_uid != null) ...[
+              Text(
+                'Your user id is $_uid',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ]
           ],
         ),
       ),

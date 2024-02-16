@@ -51,8 +51,6 @@ void main() {
       expect($(#successful_login_container), findsOneWidget);
       expect($(#loader), findsNothing);
 
-      expect($(#does_not_exist), findsOneWidget);
-
       if (!Platform.isMacOS) {
         await $.native.pressHome();
       }

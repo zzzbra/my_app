@@ -13,14 +13,13 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-  });
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      key: const Key('main_app'),
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -67,6 +66,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String? _uid;
+  bool _isLoading = false;
+  String? _error;
 
   void _incrementCounter() {
     setState(() {
@@ -80,18 +81,27 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _login() async {
+    setState(() {
+      _isLoading = true;
+    });
     try {
+      const email = String.fromEnvironment('EMAIL');
+      const password = String.fromEnvironment('PASSWORD');
       final userCredential =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'zbrady+1206@lineleap.com',
-        password: 'test1234',
+        email: email,
+        password: password,
       );
-      print('userCredential: $userCredential');
+
       setState(() {
+        _isLoading = false;
         _uid = userCredential.user?.uid;
       });
     } catch (e) {
-      print('Error: $e');
+      setState(() {
+        _error = e.toString();
+        _isLoading = false;
+      });
     }
   }
 
@@ -141,22 +151,54 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: _login,
+              key: const Key('login_button'),
+              onTap: () async {
+                setState(() {
+                  _counter = _counter + 10;
+                });
+                await _login();
+              },
               child: Text(
                 'Click me to login',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
-            if (_uid != null) ...[
+            if (_isLoading) ...[
+              const Text(
+                'Loading...',
+                key: Key('loader'),
+              ),
+            ] else if (_uid != null) ...[
+              Padding(
+                key: const Key('successful_login_container'),
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'Your user id is:',
+                      key: const Key('login_text'),
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    Text(
+                      '$_uid',
+                      key: const Key('logged_in_user_id'),
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+              ),
+            ] else if (_error != null) ...[
               Text(
-                'Your user id is $_uid',
+                'Error: $_error',
+                key: const Key('error_text'),
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-            ]
+            ],
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        key: const Key('fab'),
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),

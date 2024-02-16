@@ -11,7 +11,6 @@ import pl.leancode.patrol.PatrolJUnitRunner;
 public class MainActivityTest {
     @Parameters(name = "{0}")
     public static Object[] testCases() {
-        System.out.println("BATMAX: MainActivityTest.testCases()");
         PatrolJUnitRunner instrumentation = (PatrolJUnitRunner) InstrumentationRegistry.getInstrumentation();
         // replace "MainActivity.class" with
         // "io.flutter.embedding.android.FlutterActivity.class"
